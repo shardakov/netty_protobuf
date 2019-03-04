@@ -1,0 +1,24 @@
+syntax = "proto2";
+
+option java_package = "com.protobuf";
+option java_outer_classname = "FileDisk";
+
+message Disk {
+    required string vendor = 1;
+    repeated DiskSpec diskSpec = 2;
+}
+
+message DiskSpec{
+    required int32 volume = 1;
+    required int32 id = 2;
+    optional int32 WSpeed = 3;
+    optional int32 RSpeed = 4;
+    optional Type type = 5 [default = HDD];
+
+    enum Type {
+        SSD = 0;
+        HDD = 1;
+        SAS = 2;
+        }
+    }
+
